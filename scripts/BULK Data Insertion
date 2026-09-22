@@ -1,0 +1,57 @@
+--inserting data into bronze.crm_cust_info table with a BLUK INSERT statement -- 
+
+truncate table bronze.crm_cust_info; -- if the table already has data, we need to truncate it before inserting new data--
+bulk insert bronze.crm_cust_info
+from 'C:\Users\subra\Downloads\SQL materials\sql-data-warehouse-project\sql-data-warehouse-project\datasets\source_crm\cust_info.csv'
+with (
+  firstrow=2,
+  fieldterminator=',',
+  tablock
+);
+
+truncate table bronze.crm_prd_info; -- if the table already has data, we need to truncate it before inserting new data--
+bulk insert bronze.crm_prd_info
+from 'C:\Users\subra\Downloads\SQL materials\sql-data-warehouse-project\sql-data-warehouse-project\datasets\source_crm\prd_info.csv'
+with (
+  firstrow=2,
+  fieldterminator=',',
+  tablock
+);
+
+truncate table bronze.crm_sales_details; -- if the table already has data, we need to truncate it before inserting new data--
+bulk insert bronze.crm_sales_details
+from 'C:\Users\subra\Downloads\SQL materials\sql-data-warehouse-project\sql-data-warehouse-project\datasets\source_crm\sales_details.csv'
+with (
+  firstrow=2,
+  fieldterminator=',',
+  tablock
+);
+
+truncate table [bronze].[erp_cust_az12]; -- if the table already has data, we need to truncate it before inserting new data--
+bulk insert [bronze].[erp_cust_az12]
+from 'C:\Users\subra\Downloads\SQL materials\sql-data-warehouse-project\sql-data-warehouse-project\datasets\source_erp\CUST_AZ12.csv'
+with (
+  firstrow=2,
+  fieldterminator=',',
+  tablock
+);
+
+truncate table [bronze].[erp_loc_a101]; -- if the table already has data, we need to truncate it before inserting new data--
+bulk insert [bronze].[erp_loc_a101]
+from 'C:\Users\subra\Downloads\SQL materials\sql-data-warehouse-project\sql-data-warehouse-project\datasets\source_erp\loc_A101.csv'
+with (
+  firstrow=2,
+  fieldterminator=',',
+  tablock
+);
+
+
+truncate table [bronze].[erp_px_cat_g1v2]; -- if the table already has data, we need to truncate it before inserting new data--
+bulk insert [bronze].[erp_px_cat_g1v2]
+from 'C:\Users\subra\Downloads\SQL materials\sql-data-warehouse-project\sql-data-warehouse-project\datasets\source_erp\px_cat_G1V2.csv'
+with (
+  firstrow=2,
+  fieldterminator=',',
+  tablock
+);
+--=========================================--
